@@ -1,0 +1,22 @@
+# Virtual environment
+venv/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+
+# Environment variables
+.env
+
+# Django migrations (optional, sometimes you commit these)
+*/migrations/*.py
+*/migrations/*.pyc
+!*/migrations/__init__.py
+
+# IDE / editor files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
