@@ -18,11 +18,10 @@
       type="image/x-icon"
     />
 
-    <!-- Bootstrap4 CSS -->
+    <!-- ✅ Bootstrap 4 CSS -->
     <link
-      href="{% static 'css/bootstrap.css' %}"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
       rel="stylesheet"
-      type="text/css"
     />
 
     <!-- Font awesome 5 -->
@@ -42,26 +41,21 @@
   </head>
   <body>
     <!-- navbar -->
-    {% include "includes/navbar.html" %} {% block content %}
+    {% include "includes/navbar.html" %}
+
+    {% block content %}
     <!-- content -->
     {% endblock %}
 
     <!-- footer -->
     {% include 'includes/footer.html' %}
 
-    <!-- jQuery (3.6.0) -->
-    <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
-
-    <!-- Bootstrap bundle (includes Popper) -->
-    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <!-- ✅ jQuery + Popper + Bootstrap 4 JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <!-- custom javascript -->
     <script src="{% static 'js/script.js' %}"></script>
-
-    <script type="text/javascript">
-      $(document).ready(function () {
-        // jQuery code
-      });
-    </script>
   </body>
 </html>

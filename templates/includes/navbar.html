@@ -46,7 +46,7 @@
       <div class="row align-items-center">
         <div class="col-lg-2 col-md-3 col-6">
           <a href="{% url 'home' %}" class="brand-wrap">
-            <img class="logo" src="{%static './images/logo.png'%}" />
+            <img class="logo" src="{% static 'images/logo.png' %}" alt="Logo" />
           </a>
           <!-- brand-wrap.// -->
         </div>
@@ -62,7 +62,6 @@
             <div class="dropdown-menu">
               <a class="dropdown-item" href="{% url 'store'%}"
                 >All Products
-              </a>
               </a>
               {% for category in links %}
               <a class="dropdown-item" href="{{ category.get_url }}"
@@ -101,19 +100,36 @@
         <!-- col.// -->
         <div class="col-lg-3 col-sm-6 col-8 order-2 order-lg-3">
           <div class="d-flex justify-content-end mb-3 mb-lg-0">
-            <div class="widget-header">
-              <small class="title text-muted">Welcome guest!</small>
-              <div>
-                <a href="./signin.html">Sign in</a>
-                <span class="dark-transp"> | </span>
-                <a href="./register.html"> Register</a>
-              </div>
+           <div class="widget-header text-right">
+                {% if user.is_authenticated %}
+                    <!-- First line: Welcome username -->
+                    <small class="d-block text-muted">Welcome {{ user.first_name }}</small>
+
+                    <!-- Second line: Dashboard | Logout -->
+                    <div>
+                        <a href="{% url 'dashboard' %}">Dashboard</a>
+                        <span class="dark-transp"> | </span>
+                        <a href="{% url 'logout' %}">Logout</a>
+                    </div>
+                {% else %}
+                    <!-- First line: Welcome guest -->
+                    <small class="d-block text-muted">Welcome guest!</small>
+
+                    <!-- Second line: Sign in | Register -->
+                    <div>
+                        <a href="{% url 'login' %}">Sign in</a>
+                        <span class="dark-transp"> | </span>
+                        <a href="{% url 'register' %}">Register</a>
+                    </div>
+                {% endif %}
             </div>
+
+
             <a href="{% url 'cart'%}" class="widget-header pl-3 ml-3">
               <div class="icon icon-sm rounded-circle border">
                 <i class="fa fa-shopping-cart"></i>
               </div>
-              <span class="badge badge-pill badge-danger notify">{{cart_count}}</span>
+              <span class="badge badge-pill badge-danger notify">{{ cart_count|default:0 }}</span>
             </a>
           </div>
           <!-- widgets-wrap.// -->
