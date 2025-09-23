@@ -1,0 +1,84 @@
+/* ========================= RATING STARS ========================= */
+
+/* Hide radio buttons */
+.rate > input {
+  display: none;
+}
+
+.rate {
+  display: inline-block;
+  border: 6;
+}
+
+.rate > label {
+  float: right;
+  position: relative;
+  cursor: pointer;
+}
+
+/* Full star */
+.rate > label:before {
+  content: "\f005"; /* full star */
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900; /* solid style */
+  font-size: 1.3rem;
+  padding: 0.3rem 0.2rem;
+  display: inline-block;
+  color: #ccc; /* default grey */
+}
+
+/* Half star */
+.rate .half:before {
+  content: "\f089"; /* half star */
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  position: absolute;
+  color: #ccc;
+}
+
+/* Hover effect */
+.rate > input:checked ~ label:before,
+.rate > input:checked ~ label ~ label:before,
+.rate > label:hover:before,
+.rate > label:hover ~ label:before {
+  color: #ffb503; /* golden yellow */
+}
+
+/* Keep highlight on hover after selecting */
+input:checked + label:hover:before,
+input:checked ~ label:hover:before,
+input:checked ~ label:hover ~ label:before,
+label:hover ~ input:checked ~ label:before {
+  color: #cc9000; /* darker yellow */
+}
+
+/* ========================= STATIC STAR DISPLAY ========================= */
+
+.rating-star i {
+  color: #ffb503 !important;
+}
+
+/* ========================= PRODUCT IMAGE GALLERY ========================= */
+
+ul.thumb {
+  margin: 0 auto;
+  padding: 0;
+  float: left;
+}
+
+ul.thumb li {
+  list-style: none;
+  margin: 10px;
+  display: inline-block;
+}
+
+ul.thumb li img {
+  width: 80px;
+  height: 80px;
+  border: 1px solid grey;
+  cursor: pointer;
+  object-fit: cover;
+}
+
+
+
